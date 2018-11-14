@@ -14,7 +14,7 @@ pipeline{
                     sh 'echo -e "\033[0;34m ## Innersource Checkout ##\033[0m"'
                     git branch: 'master',
                     credentialsId: '9a54ae94-57c6-46ae-9ce0-4974a758182d',
-                    url: 'https://github.com/wasantos/teste.git'
+                    url: 'https://github.com/wasantos/DataLake.git'
                 }
             }  
         }
