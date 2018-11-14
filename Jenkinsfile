@@ -24,12 +24,9 @@ pipeline{
                 dir('projeto'){
                     sh 'echo -e "\033[0;34m ## Build Datalake ##\033[0m"'
                     sh 'source /home/centos/.bashrc'
-                    sh --login '''
-                    pyenv local 3.6.6
-                    cd datalake
-                    python --version
-                    python build.py
-                    '''
+                    sh 'cd datalake'
+                    sh 'python --version'
+                    sh 'python build.py'
                 }
             }
         }
