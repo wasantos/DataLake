@@ -23,6 +23,7 @@ pipeline{
             steps{
                 dir('projeto'){
                     sh 'echo -e "\033[0;34m ## Build Datalake ##\033[0m"'
+                    sh 'source .bashrc'
                     sh 'pyenv local 3.6.6'
                     sh 'cd datalake'
                     sh 'python --version'
