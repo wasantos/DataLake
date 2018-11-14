@@ -18,14 +18,17 @@ pipeline{
                 }
             }  
         }
-    
-        stage('Clean Project'){
+
+        stage('Build Datalake'){
             steps{
                 dir('projeto'){
-                    sh 'echo -e "\033[0;34m ## Clean Project ##\033[0m"'
-                    sh 'echo TESTE'
+                    sh 'echo -e "\033[0;34m ## Build Datalake ##\033[0m"'
+                    sh 'pyenv local 3.6.6'
+                    sh 'cd datalake'
+                    sh 'python --version'
+                    sh 'python build.py'
                 }
             }
-        }         
+        }
     }
 }
