@@ -1,5 +1,5 @@
 pipeline{
-    agent { label 'slave-local' }
+    agent { label 'master' }
         stages{     
             stage('Clean Workspace'){
             steps{
@@ -23,11 +23,10 @@ pipeline{
             steps{
                 dir('projeto'){
                     sh 'echo -e "\033[0;34m ## Build Datalake ##\033[0m"'
-                    sh 'source /home/centos/.bashrc'
                     sh 'cd datalake'
                     sh 'pwd'
-                    sh '/usr/bin/python3.6 --version'
-                    sh '/usr/bin/python3.6 build.py'
+                    sh 'python --version'
+                    sh 'python build.py'
                 }
             }
         }
