@@ -26,7 +26,7 @@ pipeline{
                     sh 'pwd'
                     sh 'python --version'
                     sh 'python build.py'
-                    sh 'echo "Fim ..."'
+                    sh 'echo "Fim ....."'
                 }
             }
         }
