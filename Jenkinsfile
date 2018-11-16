@@ -3,7 +3,7 @@ pipeline{
         stages{     
             stage('Clean Workspace'){
             steps{
-                sh 'echo -e "\033[0;34m## Limpando o Workspace ##\033[0m"'
+                sh 'echo -e "## Limpando o Workspace ##"'
                 deleteDir()
             }
         }
@@ -11,7 +11,7 @@ pipeline{
         stage('SCM - GitHub'){
             steps{
                 dir('projeto'){
-                    sh 'echo -e "\033[0;34m ## Innersource Checkout ##\033[0m"'
+                    sh 'echo -e "## Innersource Checkout ##"'
                     git branch: 'master',
                     credentialsId: '9a54ae94-57c6-46ae-9ce0-4974a758182d',
                     url: 'https://github.com/wasantos/DataLake.git'
@@ -21,14 +21,12 @@ pipeline{
 
         stage('Build Datalake'){
             steps{
-                dir('projeto'){
-                    sh 'echo -e "\033[0;34m ## Build Datalake ##\033[0m"'
+                dir('datalake'){
+                    sh 'echo -e "## Build Datalake ##"'
                     sh 'pwd'
-                    sh 'cd datalake'
-                    sh 'pwd'
-                    sh 'python --version'
-                    sh 'python build.py'
-                    sh 'echo "Fim ...."'
+                    sh 'python36 --version'
+                    sh 'python36 build.py'
+                    sh 'echo "Fim ..."'
                 }
             }
         }
