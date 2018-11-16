@@ -24,8 +24,8 @@ pipeline{
                 dir('datalake'){
                     sh 'echo -e "## Build Datalake ##"'
                     sh 'pwd'
-                    sh 'python36 --version'
-                    sh 'python36 build.py'
+                    sh 'python --version'
+                    sh 'python build.py'
                     sh 'echo "Fim ..."'
                 }
             }
