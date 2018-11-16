@@ -24,7 +24,7 @@ pipeline{
                 dir('projeto'){
                     sh 'echo -e "\033[0;34m ## Build Datalake ##\033[0m"'
                     sh 'pwd'
-                    sh 'cd projeto/datalake'
+                    sh 'cd datalake'
                     sh 'pwd'
                     sh 'python --version'
                     sh 'python build.py'
