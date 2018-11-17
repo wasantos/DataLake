@@ -1,5 +1,5 @@
 pipeline{
-    agent { label 'master' }
+    agent { label 'slave_local' }
         stages{     
             stage('Clean Workspace'){
             steps{
@@ -8,25 +8,45 @@ pipeline{
             }
         }
 
-        stage('SCM - GitHub'){
+        stage('SCM GitHub - Checkout'){
             steps{
                 dir('projeto'){
-                    sh 'echo -e "## Innersource Checkout ##"'
+                    sh 'echo -e "## SCM GitHub - Checkout ##"'
                     git branch: 'master',
-                    credentialsId: '9a54ae94-57c6-46ae-9ce0-4974a758182d',
+                    credentialsId: 'd319fe2f-a4b7-4e8c-8b30-2803211f33c4',
                     url: 'https://github.com/wasantos/DataLake.git'
                 }
             }  
         }
-
-        stage('Build Datalake'){
+        
+            stage('Check Python'){
             steps{
-                dir('datalake'){
-                    sh 'echo -e "## Build Datalake ##"'
+                dir('projeto'){
+                    sh 'echo -e "## Clean Project ##"'
                     sh 'pwd'
+                    sh 'pyenv local 3.6.6'
                     sh 'python --version'
+                    
+                }
+            }
+        }  
+
+        stage('Find directory to build'){
+            steps{
+                dir('projeto'){
+                    sh 'echo -e "## Find directory to build ##"'
+                    sh 'pwd'
+                    sh 'tree'
+                }
+            }
+        }
+        
+        stage('Build DataLake'){
+            steps{
+                dir('projeto/datalake'){
+                    sh 'echo -e "## Build DataLake Python ##"'
+                    sh 'pwd'
                     sh 'python build.py'
-                    sh 'echo "Fim ....."'
                 }
             }
         }
