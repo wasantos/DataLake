@@ -44,7 +44,7 @@ pipeline{
         stage('Build DataLake'){
             steps{
                 dir('projeto/datalake'){
-                    sh 'echo -e "## Build DataLake Python ##"'
+                    sh 'echo -e "## Build DataLake Python !##"'
                     sh 'pwd'
                     sh 'python build.py'
                 }
