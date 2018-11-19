@@ -54,12 +54,14 @@ pipeline{
                     
         stage('Post Building') {
             steps {
+                    sh 'echo -e "## Aqui código do Post-Building ##"'
                     // One or more steps need to be included within the steps block.
                   }
 
         post {
         success {
-                   // One or more steps need to be included within each condition's block.
+                   sh 'echo -e "## Se der tudo Certo!!! ... ##"'
+                    // One or more steps need to be included within each condition's block.
                 }
             }
         }
