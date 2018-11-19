@@ -12,7 +12,6 @@ pipeline{
             steps{
                 dir('projeto'){
                     sh 'echo -e "## SCM GitHub - Checkout ##"'
-                    git branch: 'master',
                     credentialsId: 'd319fe2f-a4b7-4e8c-8b30-2803211f33c4',
                     url: 'https://github.com/wasantos/DataLake.git'
                 }
