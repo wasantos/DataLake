@@ -60,7 +60,7 @@ pipeline{
 
         post {
         success {
-                   sh 'echo -e "## Se der tudo Certo!!! ...Teste webhook ...##"'
+                   sh 'echo -e "## Se der tudo Certo!!! ...Teste webhook ......##"'
                     // One or more steps need to be included within each condition's block.
                 }
             }
