@@ -47,8 +47,20 @@ pipeline{
                     sh 'echo -e "## Build DataLake Python ##"'
                     sh 'pwd'
                     sh 'python build.py'
+                    
+                 }
+            }
+        }
+                    
+        stage('Post Building') {
+            steps {
+                    // One or more steps need to be included within the steps block.
+                  }
+
+        post {
+        success {
+                   // One or more steps need to be included within each condition's block.
                 }
             }
         }
-    }
 }
