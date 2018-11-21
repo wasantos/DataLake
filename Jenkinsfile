@@ -34,7 +34,7 @@ pipeline{
         stage('Find directory to build'){
             steps{
                 dir('projeto'){
-                    sh 'echo -e "## Find directory to build ... ##"'
+                    sh 'echo -e "## Find directory to build ##"'
                     sh 'pwd'
                     sh 'tree'
                 }
@@ -60,7 +60,7 @@ pipeline{
 
         post {
         success {
-                   sh 'echo -e "## Se der tudo Certo!!! ...Teste webhook ....##"'
+                   sh 'echo -e "## Se der tudo Certo!!! ...Teste webhook! ##"'
                     // One or more steps need to be included within each condition's block.
                 }
             }
