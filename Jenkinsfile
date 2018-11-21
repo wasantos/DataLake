@@ -34,7 +34,7 @@ pipeline{
         stage('Find directory to build'){
             steps{
                 dir('projeto'){
-                    sh 'echo -e "## Find directory to build ##"'
+                    sh 'echo -e "## Find directory to build ... ##"'
                     sh 'pwd'
                     sh 'tree'
                 }
