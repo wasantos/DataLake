@@ -52,19 +52,16 @@ pipeline{
             }
         }
                     
-        stage('Post Building') {
-            steps {
-                    sh 'echo -e "## Aqui código do Post-Building ##"'
-                    // One or more steps need to be included within the steps block.
-                  }
-
-        post {
-        success {
-                   sh 'echo -e "## Se der tudo Certo!!! ...Teste webhook! ##"'
-                    // One or more steps need to be included within each condition's block.
+        stage('Publisher on S3'){
+            steps{
+                dir('projeto/datalake'){
+                    sh 'aws --version'
+                    sh 'aws s3 ls'
+                    sh 'pwd'
+                    sh 'ls -lrt'
+                    sh 'aws s3 cp *.zip s3://repo-lambda-teste/'
                 }
             }
-        
         }
     }
 }
