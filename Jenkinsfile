@@ -63,5 +63,18 @@ pipeline{
                 }
             }
         }
+    
+        stage('Update Lambda Function'){
+            steps{
+                dir('projeto/datalake'){
+                    sh '''
+                    aws lambda update-function-code --region us-east-1 \
+                    --function-name datalake \
+                    --s3-bucket repo-lambda-teste \
+                    --s3-key datalake.zip
+                       '''
+                }
+            }
+        }      
     }
 }
